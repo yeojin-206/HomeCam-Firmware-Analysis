@@ -247,7 +247,7 @@ QEMU 부팅 시 사용할 ext4 파일 시스템을 만들고, 추출한 펌웨�
     ext4 형식으로 포맷한다. 이후 이 파일에 마운트하여 파일을 복사할 수 있다.
     
 
-1. **임시 마운트 폴더 생성**
+3. **임시 마운트 폴더 생성**
     
     ```bash
     mkdir qemu_rootfs
@@ -256,7 +256,7 @@ QEMU 부팅 시 사용할 ext4 파일 시스템을 만들고, 추출한 펌웨�
     마운트 시 사용할 디렉토리를 만들어 준다.
     
 
-1. **ext4 이미지 마운트**
+4. **ext4 이미지 마운트**
     
     ```bash
     sudo mount -o loop rootfs2.ext4 qemu_rootfs/
@@ -265,7 +265,7 @@ QEMU 부팅 시 사용할 ext4 파일 시스템을 만들고, 추출한 펌웨�
     `-o loop` 옵션을 통해 파일을 디스크처럼 마운트한다.
     
 
-1. **펌웨어에서 추출한 파일 시스템 복사**
+5. **펌웨어에서 추출한 파일 시스템 복사**
     
     펌웨어 분석 결과, 아래와 같이 세 가지 파일 시스템이 추출되었다.
     
@@ -292,7 +292,7 @@ QEMU 부팅 시 사용할 ext4 파일 시스템을 만들고, 추출한 펌웨�
     ```
     
     > `cp -a` 옵션은 권한, 소유자, 심볼릭 링크 등도 그대로 유지하면서 복사하는 명령어이다.
-    > 
+    
     
     최종적으로 구성된 디렉토리 구조는 다음과 같다.
     
@@ -358,7 +358,7 @@ root::10933:0:99999:7:::
 
 root: 다음에 나오는 `$5$…` 값은 SHA-256 해시된 비밀번호이다. 이 값을 지워야 비밀번호 없이 로그인할 수 있다.
 
-1. **마운트 해제**
+2. **마운트 해제**
 
 수정이 끝났으면 반드시 마운트를 해제해야 한다.
 
@@ -415,13 +415,13 @@ sudo cp rootfs_buildroot/temp/usr/bin/gdbserver qemu_rootfs/usr/bin/
 
 ---
 
-1. **마운트 해제**
+2. **마운트 해제**
 
 ```bash
 sudo umount qemu_rootfs
 ```
 
-1. **ext4 파일 시스템의 저널링 제거** 
+3. **ext4 파일 시스템의 저널링 제거** 
 
 ext4 파일 시스템은 기본적으로 저널링 기능이 활성화되는데, 일부 커널은 이 기능을 지원하지 않아 커널 패닉이 발생할 수 있다. 따라서 아래 명령으로 미리 저널링을 제거해준다.
 
@@ -463,7 +463,7 @@ sudo e2fsck -f rootfs2.ext4
 sudo apt install gdb-multiarch
 ```
 
-1. **QEMU 실행**
+2. **QEMU 실행**
 
 ```bash
 qemu-system-mipsel \
@@ -495,13 +495,13 @@ qemu-system-mipsel \
 
 ( GDB가 접속할 때까지 대기한다.)
 
-1. **호스트 터미널에서 gdb-multiarch 실행**
+3. **호스트 터미널에서 gdb-multiarch 실행**
 
 ```bash
 gdb-multiarch
 ```
 
-1. **gdb** **내부에서 커널 심볼 로드 & 원격 연결**
+4. **gdb** **내부에서 커널 심볼 로드 & 원격 연결**
 
 ```bash
 (gdb) file vmlinux
@@ -517,7 +517,7 @@ gdb-multiarch
 > https://training.mips.com/cps_mips/Examples/MD00901_Boot-MIPS_Example_Boot_Code_for_MIPS_Cores.pdf
 > 
 
-1. **gdb로 디버깅**
+5. **gdb로 디버깅**
 
 ![image.png](img/image16.png)
 
@@ -543,7 +543,7 @@ qemu-system-mipsel \
 이 명령어로 QEMU를 실행하면 터미널 기반 가상 머신이 시작된다. 
 포트 3333은 gdbserver가 사용할 포트이며, 외부에서 gdb가 접근할 수 있도록 포워딩을 설정한다.
 
-1. **QEMU 내에서 gdbserver 실행 확인**
+2. **QEMU 내에서 gdbserver 실행 확인**
 
 QEMU를 실행하면 `root` 계정으로 로그인할 수 있으며, `ls` 명령어를 통해 파일 시스템이 정상적으로 올라갔는지 확인할 수 있다.  
 
@@ -553,7 +553,7 @@ gdbserver 명령어를 실행하여 출력해 보면, 해당 명령어가 QEMU �
 
 ![image.png](img/image41.png)
 
-1. **IP 할당**
+3. **IP 할당**
 
 gdbserver를 외부에서 원격 디버깅하려면, QEMU 내부에 IP가 있어야 하므로 다음 명령으로 DHCP를 통해 IP를 할당해준다.
 
@@ -563,7 +563,7 @@ udhcpc -i eth0
 
 QEMU 가상 머신 내의 eth0 네트워크 인터페이스에 동적으로 IP를 부여하여 외부(gdb)에서 접근할 수 있도록 네트워크를 활성화한다.
 
-1.  **디버깅 대상 프로세스를 gdbserver attach**
+4.  **디버깅 대상 프로세스를 gdbserver attach**
 
 QEMU 내부에서 디버깅할 대상 프로세스의 PID를 먼저 확인한다.
 
@@ -608,7 +608,7 @@ QEMU 내부에서 디버깅할 대상 프로세스의 PID를 먼저 확인한다
 gdbserver :3333 --attach {PID}
 ```
 
-1. **호스트에서 gdb 연결**
+5. **호스트에서 gdb 연결**
 
 호스트에서  gdb-multiarch를 실행하여 gdbserver에 연결한다.
 
