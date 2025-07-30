@@ -123,11 +123,11 @@ make qemu_mipsel_malta_defconfig
 
 `make menuconfig` →Toolchain → Custom kernel headers series를 3.10.x 로 설정해준다.
 
-![image.png](img/image 3.png)
+![image.png](img/image3.png)
 
 Enable C++ support, Thread library debugging 활성화해준다.
 
-![image.png](img/image 4.png)
+![image.png](img/image4.png)
 
 Enable C++ support, Thread library debugging 을 활성화 시켜야  
 
@@ -642,7 +642,7 @@ info func을 통해 디버깅 중인 프로그램 내의 함수 목록을 볼 �
 
 netstat 명령어를 통해 goahead가 80포트에서 listen 중이라는 것을 확인한다.
 
-![image.png](img/image 21.png)
+![image.png](img/image21.png)
 
 앞선 QEMU 명령어에서 다음과 같이  호스트의 `localhost:8080` 포트 → QEMU 내부의 `0.0.0.0:80` 포트로 연결 했기 때문에 브라우저에서 `http://localhost:8080/` 으로 요청을 보내면 QEMU 안의 `goahead` 웹서버가 그 요청을 받아 처리하게 된다.
 
