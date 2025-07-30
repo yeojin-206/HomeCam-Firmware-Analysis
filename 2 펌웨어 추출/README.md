@@ -77,20 +77,20 @@
     
     분리한 플래시 메모리 칩을 라즈베리 파이 또는 롬 라이터에 맞는 소켓·핀 헤더에 연결해 SPI 통신을 구성한다. 
     
-<캡톤 테이프로 칩 주변 부품 보호>
 ![image.png](img/image2.png)
+*<캡톤 테이프로 칩 주변 부품 보호>*
 
 
-<솔더 페이스트와 열풍기>
 ![image.png](img/image3.png)
+*<솔더 페이스트와 열풍기>*
 
 
-<열풍기로 플래시 메모리 칩을 분리하는 모습>
 ![image.png](img/image4.png)
+*<열풍기로 플래시 메모리 칩을 분리하는 모습>*
 
 
-<플래시 메모리 칩을 분리한 모습>
 ![image.png](img/image5.png)
+*<플래시 메모리 칩을 분리한 모습>*
 
 
 ## 2.2 데이터 시트 확인
@@ -125,11 +125,11 @@
 | XM25QH64C (SPI NOR Flash) | 8핀, 8MB 용량 |
 | Flashrom | 오픈소스 플래시 추출 도구 |
 
-<Raspberry Pi 4>
 ![image.png](img/image6.png)
+*<Raspberry Pi 4>*
 
-<점퍼 케이블>
 ![image.png](img/image7.png)
+*<점퍼 케이블>*
 
 점퍼 케이블
 
