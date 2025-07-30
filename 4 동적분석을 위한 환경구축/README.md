@@ -97,7 +97,7 @@ make list-defconfigs
 
 위 명령어를 통해 현재 Buildroot 버전에서 사용할 수 있는 defconfig 파일의 목록을 다음과 같이 확인할 수 있다.
 
-![image.png](img/image 1.png)
+![image.png](img/image1.png)
 
 다음으로 
 
@@ -115,7 +115,7 @@ make qemu_mipsel_malta_defconfig
 
 `make menuconfig` 를 통해 세부 옵션을 설정해줄 수 있다.
 
-![image.png](img/image 2.png)
+![image.png](img/image2.png)
 
 - Kernel 메뉴에서 Kernel version을 3.10.14로 설정해준다.
 - Kernel compression format을 lzma compression으로 설정해준다.
@@ -142,18 +142,18 @@ Target packages  --->
     [*] gdbserver
 ```
 
-![image.png](img/image 5.png)
+![image.png](img/image5.png)
 
 디버깅 심볼을 포함하여 빌드하기 위해 
 
 - Build options → build pakages with debugging symbols를 활성화한다.
 - strip command for binaries on target을 none으로 설정해준다.
 
-![image.png](img/image 6.png)
+![image.png](img/image6.png)
 
 Filesystem images→ ext2/3/4 root filesystem이 활성화 되어있지 않다면 활성해주고, ext2/3/4 variant에서 ext4로 설정해준다.
 
-![image.png](img/image 7.png)
+![image.png](img/image7.png)
 
 `make linux-menuconfig`를 통해 리눅스 커널 설정을 하기 위해서 다음과 같이 python과 rsync를 설치해줘야 한다.
 
@@ -178,29 +178,29 @@ sudo update-locale LANG=en_US.UTF-8
 
 `make linux-menuconfig`  → Filesystem에서 다음과 같이 활성화해준다.
 
-![image.png](img/image 8.png)
+![image.png](img/image8.png)
 
 `make linux-menuconfig` → Kernel Hacking 에서 Kernel debugging을 다음과 같이 활성화해준다.
 
-![image.png](img/image 9.png)
+![image.png](img/image9.png)
 
 `make linux-menuconfig` → Kernel Hacking 에서 compile the kernel with debug info를 활성화해준다.
 
-![image.png](img/image 10.png)
+![image.png](img/image10.png)
 
 `make menuconfig` → Filesystem images ext2/3/4 rootfile system → ext2/3/4 variant (ext4) 로 설정해준다.
 
-![image.png](img/image 11.png)
+![image.png](img/image11.png)
 
 `Save` 를 통해 저장해주고 `make` 를 통해 빌드
 
 결과적으로 다음과 같이 output/images/ 디렉터리에 vmlinux가 생성된 것을 확인할 수 있다.
 
-![image.png](img/image 12.png)
+![image.png](img/image12.png)
 
 또한 strings 명령어를 통해 vmlinux 파일 내의 리눅스 버전 정보를 확인함으로써 의도한 3.10.14 버전의 커널 이미지라는 것을 확인했다.
 
-![image.png](img/image 13.png)
+![image.png](img/image13.png)
 
 ### **✅ 완료 판단 기준**
 
@@ -384,7 +384,7 @@ gdbserver는 임베디드 시스템이나 원격 시스템에서 디버깅 대�
 
 이러한 정적 `gdbserver`를 얻는 방법은 두 가지가 있다. 교차 툴체인으로 직접 빌드하거나, 미리 빌드된(prebuilt) 정적 바이너리를 활용하는 것이다. 본 실습에서는 후자의 방법으로 진행하였다. 
 
-![image.png](img/image 14.png)
+![image.png](img/image14.png)
 
 <https://github.com/stayliv3/gdb-static-cross/tree/master/prebuilt>
 다양한 아키텍처에 대한 정적 gdbserver 파일들이 제공되고 있으므로, 자신이 분석하고 있는 펌웨어에 맞는 버전의 gdbserver 파일을 다운로드하여 사용할 수 있다. 
@@ -510,7 +510,7 @@ gdb-multiarch
 
 호스트 측에서는 위 명령어를 입력하여  gdb-multiarch를 실행한 뒤, 디버깅 심볼이 포함된 vmlinux 파일을 로드하고 gdb 서버에 접속한다. 
 
-![image.png](img/image 15.png)
+![image.png](img/image15.png)
 
 연결 직후 PC(Program counter)가 0xBFC00000에서 멈춘 것을 확인할 수 있는데, 이 주소는 MIPS 32비트 아키텍처의 부트 벡터 영역에 해당한다. 이후 원하는 함수나 주소에 브레이크포인트를 설정하고 continue를 입력하면 해당 지점부터 단계별 커널 디버깅이 가능하다. 
 
@@ -519,7 +519,7 @@ gdb-multiarch
 
 1. **gdb로 디버깅**
 
-![image.png](img/image 16.png)
+![image.png](img/image16.png)
 
 위 화면은 start_kernel 함수에 breakpoint를 설정하고 c 명령어로 실행을 재개해 커널이 해당 지점에 도달했을 때의 gdb 세션을 보여준다. PC가 0x80501598로 이동하였으며 커널 빌드 과정에서 디버깅 심볼을 포함했기 때문에 init/main.c:472라는 함수·소스 라인 매핑이 확인 가능하다.
 
@@ -547,11 +547,11 @@ qemu-system-mipsel \
 
 QEMU를 실행하면 `root` 계정으로 로그인할 수 있으며, `ls` 명령어를 통해 파일 시스템이 정상적으로 올라갔는지 확인할 수 있다.  
 
-![image.png](img/image 17.png)
+![image.png](img/image17.png)
 
 gdbserver 명령어를 실행하여 출력해 보면, 해당 명령어가 QEMU 시스템에 정상적으로 설치되어 있고 실행 가능한 상태임을 확인할 수 있다.
 
-![image.png](img/image 41.png)
+![image.png](img/image41.png)
 
 1. **IP 할당**
 
@@ -624,7 +624,7 @@ target remote localhost:3333
 
 이 과정을 통해 gdbserver가 열어둔 포트에 연결되어, QEMU  내부에서 실행 중인 프로세스를 원격 디버깅할 수 있다.
 
-![image.png](img/image 18.png)
+![image.png](img/image18.png)
 
 <aside>
 
@@ -634,9 +634,9 @@ QEMU를 종료할 때는 `Ctrl + a`를 누른 뒤 `x`를 입력하면 된다. �
 
 info func을 통해 디버깅 중인 프로그램 내의 함수 목록을 볼 수도 있다.
 
-![image.png](img/image 19.png)
+![image.png](img/image19.png)
 
-![image.png](img/image 20.png)
+![image.png](img/image20.png)
 
 ### 4.3.3 웹 서버 연결
 
@@ -659,7 +659,7 @@ qemu-system-mipsel \
 
 브라우저에서 [http://localhost:8080/home.htm](http://localhost:8080/home.htm) 를 입력하면 다음과 같은 페이지에 도달할 수 있다.
 
-![image.png](img/image 22.png)
+![image.png](img/image22.png)
 
 펌웨어의 파일시스템에서 아래 사진과 같이 ID와 PW를 알아낼 수 있었다.
 ID: adimin
@@ -669,7 +669,7 @@ PW: admin123
 grep -rI "admin" .
 ```
 
-![image.png](img/image 23.png)
+![image.png](img/image23.png)
 
 startapp 스크립트 내부에서 실행되는 jooanipc 프로세스와 goahead 서버 간의 통신이 이루어지고, 관리자 로그인 요청과 같은 경우 jooanipc를 백그라운드에서 실행해줘야 통신이 제대로 이루어져 관리자 페이지 접근이 가능하다. 하지만 우리의 경우에는 etc/init.d/rcS 파일에서 startapp을 명시적으로 부팅시에 실행시키지 않도록 했기 때문에 별도로 jooanipc를 실행시켜줘야 한다.
 
