@@ -43,7 +43,7 @@
 
 분석 결과, 추출한 펌웨어 파일(flash.bin) 내부에는 다음과 같은 구성 요소들이 포함되어 있었다.
 
-![image.png](3%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%A8%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%2022f1e282ea158061ba1ae4beae0d0c43/image.png)
+![image.png](img/image.png)
 
 | Offset (HEX) | 구성 요소 | 설명 |
 | --- | --- | --- |
@@ -61,7 +61,7 @@
 
 추출한 펌웨어 파일을 binwalk로 분석한 결과, 오프셋 `0x1B8000`에서 SquashFS 파일 시스템을 확인할 수 있다. 이 영역을 추출해 `squashfs-root` 디렉토리를 확보한 후, 내부에 `/bin`, `/sbin`, `/etc`, `/lib` 등 루트 파일 시스템의 핵심 디렉토리 구조가 포함되어 다. 이를 통해 해당 영역이 실제 장치에서 부팅 시 마운트되는 루트 파일 시스템(rootfs)임을 추정할 수 있다. 이후, 이 루트 파일 시스템 구조를 기반으로 실제 장치의 부팅 과정을 추적하면 된다.
 
-![스크린샷 2025-07-13 010037.png](3%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%A8%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%2022f1e282ea158061ba1ae4beae0d0c43/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-13_010037.png)
+![image.png](img/image2.png)
 
 커널 부팅 이후 실행되는 최초의 사용자 공간 프로세스는 `/linuxrc`로 `bin/busybox`로 심볼릭 링크되어 있는 것을 통해 해당 시스템이 BusyBox 기반의 임베디드 리눅스 환경이라는 것을 알 수 있다. BusyBox는 여러 유닉스 명령어를 하나의 실행파일로 통합한 소프트웨어다. 이는 적은 용량으로 다양한 유틸리티 기능을 제공하기 때문에 공간제약이 있는 임베디드 시스템에서 유용하다.
 
@@ -72,7 +72,7 @@ extractions/flash3.bin.extracted/1B8000/squashfs-root/linuxrc: symbolic link to 
 
 `/linuxrc`가 실행되면서 BusyBox init이 시작되고, Busybox init은 기본적으로 `/etc/inittab` 파일을 읽으므로  busybox 설정은 `inittab` 파일에서 확인할 수 있다. 
 
-![image (4).png](3%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%A8%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%2022f1e282ea158061ba1ae4beae0d0c43/image_(4).png)
+![image.png](img/image3.png)
 
 `inittab` 파일에서 초기화 마운트 명령과 함께 rcS 스크립트를 호출하는 부분이 있다. 이는 `/etc/init.d/rcS`가 부팅 시 호출되도록 설정된 것이다.
 
@@ -82,7 +82,7 @@ extractions/flash3.bin.extracted/1B8000/squashfs-root/linuxrc: symbolic link to 
 
 이 파일에는 클라우드 인증키, 모바일 앱과 연결되는 P2P ID 및 계정 정보, 기기 시리얼 넘버 등이 포함되어 있다. 따라서 원격 접속, 클라우드 연동, 펌웨어 업데이트와 같은 동작에 직접적인 영향을 준다. 
 
-![클라우드 인증 키, P2p ID 및 계정 정보, 시스템 정보 등](3%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%A8%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%2022f1e282ea158061ba1ae4beae0d0c43/image%201.png)
+![image.png](img/image4.png)
 
 클라우드 인증 키, P2p ID 및 계정 정보, 시스템 정보 등
 
@@ -247,7 +247,7 @@ rcS 스크립트는 시스템의 핵심 구성 요소들을 초기화하고, 사
 
 # 3.3 최종 부팅 흐름
 
-![image.png](3%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%A8%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%2022f1e282ea158061ba1ae4beae0d0c43/image%202.png)
+![image.png](img/image5.png)
 
 # **✅** 완료 판단 기준
 
