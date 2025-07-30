@@ -101,6 +101,8 @@
 <XM25QH64C 기준>
 ![image.png](img/image22.png)
 
+![<XM25QH64C 기준>](img/image22.png)
+
 플래시 메모리의 8 pin은 각자 다른 역할을 수행한다.
 
 - /CS : 칩 선택
