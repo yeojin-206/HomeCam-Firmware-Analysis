@@ -417,7 +417,7 @@ sudo flashrom --programmer ch341a_spi --read [저장 파일명]
 - [ ]  Flashrom 로그에 **“Reading flash… done”** 표시되었는가?
 - [ ]  추출한 바이너리 파일 크기가 칩 용량과 일치하는가?
  (XM25QH64C 기준으로는 약 8 MB가 되어야 덤프 성공)
-- [ ]  *(권장)  여러번 덤프 해서 ‘sha256sum flash*.bin’ 값이 일치하는지 확인*
+- [ ]  (권장)  여러번 덤프 해서 ‘sha256sum flash*.bin’ 값이 일치하는지 확인
 
 # **✅** 오류 해결 가이드
 
