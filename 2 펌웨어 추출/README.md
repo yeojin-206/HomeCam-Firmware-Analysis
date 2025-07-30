@@ -105,8 +105,6 @@
 <XM25QH64C 기준>
 ![image.png](img/image22.png)
 
-XM25QH64C 기준
-
 플래시 메모리의 8 pin은 각자 다른 역할을 수행한다.
 
 - /CS : 칩 선택
@@ -133,8 +131,6 @@ XM25QH64C 기준
 
 <Raspberry Pi 4>
 ![image.png](img/image6.png)
-
-Raspberry Pi 4
 
 <점퍼 케이블>
 ![image.png](img/image7.png)
