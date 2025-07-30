@@ -32,7 +32,7 @@ PL(Project Leader): 장형범
 - [3.펌웨어 분석 도구](1%20사전지식/3%20펌웨어%20분석%20도구/README.md)
 
 
-## [2. 펌웨어 추출](2%20펌웨어%20추출/README.md)
+## [2. 펌웨어 추출](https://github.com/yeojin-206/HomeCam-Firmware-Analysis/blob/main/2%20펌웨어%20추출/README.md)
 
 ## 3. 정적분석
 
