@@ -28,18 +28,10 @@ PL(Project Leader): 장형범
 
 ## 1. 사전지식
 - [1. 임베디드 시스템 기초](1%20사전지식/1%20임베디드%20시스템%20기초/README.md)
-- [2. 펌웨어 추출 도구](1%20사전지식/2%20펌웨어%20추출%20도구/README.md)
-- [3. 펌웨어 분석 도구](1%20사전지식/3%20펌웨어%20분석%20도구/README.md)
-
-[2. 펌웨어 추출](https://github.com/yeojin-206/HomeCam-Firmware-Analysis/blob/main/2%20펌웨어%20추출/README.md)
-[3. 정적 분석](https://github.com/yeojin-206/HomeCam-Firmware-Analysis/blob/main/3%20정적분석/README.md)
-[4. 동적분석 환경 구축](https://github.com/yeojin-206/HomeCam-Firmware-Analysis/blob/main/4%20동적분석을%20위한%20환경%20구축/README.md)
 
 ## 2. 펌웨어 추출 
-[2. 펌웨어 추출](2%20펌웨어%20추출/README.md)
 
 ## 3. 정적분석
-[3. 정적 분석](3%20정적분석/README.md)
 
 ## 4. 동적분석을 위한 환경 구축
-[4. 동적분석을 위한 환경 구축](4%20동적분석을%20위한%20환경%20구축/README.md)
+
