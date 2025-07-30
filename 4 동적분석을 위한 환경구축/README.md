@@ -772,12 +772,16 @@ Ghidra → Search → For Strings  에서  VE_IMP_system_RebootSys을 검색한�
 ![image.png](img/image34.png)
 
 로그와 Ghidra에서 분석한 함수의 이름을 매핑하면 다음과 같다.
+
 ● VE_IMP_system_RebootSys: 004801f0 워치독 타이머에 의해 호출되는 실제 재부팅
 콜백 함수이다.
+
 ● VE_IMP_system_init: FUN_00480838 카메라 센서 및 비디오 시스템을 초기화하고
 워치독을 설정하는 함수이다.
+
 ● JooanIPCamAVInit: FUN_0048c348 VE_IMP_system_init을 포함한 전체
 오디오/비디오(AV) 시스템을 초기화하는 상위 함수이다.
+
 ● main: FUN_00420d5c jooanipc 프로세스의 시작점(main 함수)로, 모든 초기화 과정을
 총괄하고 메인 루프를 실행한다.
 
