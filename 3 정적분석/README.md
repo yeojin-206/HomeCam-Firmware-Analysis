@@ -84,7 +84,7 @@ extractions/flash3.bin.extracted/1B8000/squashfs-root/linuxrc: symbolic link to 
 
 ![image.png](img/image4.png)
 
-클라우드 인증 키, P2p ID 및 계정 정보, 시스템 정보 등
+<클라우드 인증 키, P2p ID 및 계정 정보, 시스템 정보 등>
 
 ## 3.2.3 초기화 스크립트 분석
 
