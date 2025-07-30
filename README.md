@@ -1,4 +1,3 @@
-# HomeCam-Firmware-Analysis
 # Firmware Analysis Framework for Embedded
 
 ---
