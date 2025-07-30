@@ -98,8 +98,8 @@
 확보한 플래시 메모리 칩의 데이터 시트를 참고하여 pin out을 확인한다. 
 데이터 시트에는 칩에 대한 상세한 설명과 정보가 포함되어 있으니 반드시 확인해야 한다.
 
-
-![<XM25QH64C 기준>](img/image22.png)
+![XM25QH64C 기준](img/image22.png)  
+*<XM25QH64C 기준>*
 
 플래시 메모리의 8 pin은 각자 다른 역할을 수행한다.
 
@@ -211,11 +211,11 @@ sudo raspi-config
 - `sudo`: 관리자 권한으로 실행
 - `raspi-config`: 라즈베리 파이 기본 설정
 
-1. **Interface Options → SPI → Enable 선택**
+2. **Interface Options → SPI → Enable 선택**
 
 SPI는 플래시 메모리와 데이터를 주고받는 통신 방식으로 이를 활성화 해야 SPI 통신을 할 수 있다.
 
-1. **재부팅**
+3. **재부팅**
 
 ```bash
 sudo reboot
@@ -223,7 +223,7 @@ sudo reboot
 
 설정 사항을 적용하기 위해  라즈베리 파이를 재부팅한다.
 
-1. **SPI 모듈 로드 확인**
+4. **SPI 모듈 로드 확인**
 
 ```bash
 lsmod | grep spi
@@ -264,13 +264,13 @@ sudo apt-get install -y \
 - `meson, ninja`: 빌드 도구
 - `libftdi, libusb`: USB/SPI 장치 접근 라이브러리
 
-1. **flashrom 소스 코드 다운로드**
+2. **flashrom 소스 코드 다운로드**
 
 ```bash
 git clone https://github.com/flashrom/flashrom 
 ```
 
-1. **빌드 및 설치**
+3. **빌드 및 설치**
 
 ```bash
 # 빌드 환경 구성
@@ -286,7 +286,7 @@ meson test -C builddir
 sudo meson install -C build 
 ```
 
-1. **플래시 메모리 칩 인식 확인**
+4. **플래시 메모리 칩 인식 확인**
 
 라즈베리 파이와 플래시 메모리가 정상적으로 연결되었는지, flashrom에서 지원하는 칩인지 확인한다.
 
@@ -304,7 +304,7 @@ sudo flashrom -p linux_spi:dev=/dev/spidev0.0,spispeed=2000 -V
 
 칩이 정상적으로 인식되면 터미널에 `Found` 로 시작하는 메시지가 출력된다.
 
-1. **펌웨어 추출**
+5. **펌웨어 추출**
 
 ```bash
 # 추출
@@ -378,7 +378,7 @@ sudo apt install libusb-1.0-0-dev
 
 - `libusb-1.0-0-dev`: USB 장치와 통신하기 위한 라이브러리로, CH341A 롬 라이터를 인식하기 위해 필수로 설치해야 한다.
 
-1. **Flashrom 소스 코드 다운로드 및 빌드**
+2. **Flashrom 소스 코드 다운로드 및 빌드**
 
 ```bash
 git clone https://github.com/flashrom/flashrom
@@ -397,7 +397,7 @@ sudo meson test -C builddir
 sudo meson install -C builddir
 ```
 
-1. **펌웨어 추출**
+3. **펌웨어 추출**
 
 ```bash
 sudo flashrom --programmer ch341a_spi --read [저장 파일명]
