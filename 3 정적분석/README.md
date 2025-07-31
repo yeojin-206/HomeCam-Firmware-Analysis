@@ -37,7 +37,7 @@
 
 Binwalk 분석 결과, 추출한 펌웨어 이미지 내부에선 다음과 같은 구성 요소들이 확인되었다. 
 
-![image.png](attachment:e68420f9-8297-4de7-96ec-67067bc146e8:image.png)
+![image.png](img/image.png)
 
 | Offset(HEX) | 구성 요소 | 설명 |
 | --- | --- | --- |
