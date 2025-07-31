@@ -769,7 +769,7 @@ return 0;
 } 
 ```
 
-최종적으로 만들어진 [`hook.c`](../src/hook.c)는 다음과 같다.
+최종적으로 만들어진 후킹코드는 다음과 같다. [`hook.c`](../src/hook.c)
 
 작성된 hook.c 파일은 jooanipc가 사용하는 uClibc 0.9.33.2 버전에 맞는 크로스 컴파일러로 컴파일해야 한다. 오래된 버전의 툴체인을 직접 구축하는 것은 복잡하므로, MicrochipTech/pic32_br_bsp GitHub 저장소에 포함된 기성 툴체인을 활용했다.
 
