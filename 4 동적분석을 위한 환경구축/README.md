@@ -797,7 +797,7 @@ hook.c -o hook.so -ldl
     포함되어 있으므로, 컴파일 시 libdl 라이브러리를 함께 링크하여 해당 함수들을
     정상적으로 사용할 수 있도록 만든다.
 
-컴파일된 [hook.so](http://hook.so/) 파일을 QEMU 파일시스템으로 복사한 뒤,  LD_PRELOAD 옵션을 주며 jooanipc 를 실행한 결과, /dev/motor 오류 로그는 더 이상 나타나지 않았고, 재부팅이 발생해야 할 시점에는 후킹된 reboot 함수가 호출되어 재부팅이 성공적으로 차단되었다. 이로써 안정적인 디버깅 및 추가 분석을 위한 환경 구축을 완료했다.
+컴파일된 hook.so 파일을 QEMU 파일시스템으로 복사한 뒤,  LD_PRELOAD 옵션을 주며 jooanipc 를 실행한 결과, /dev/motor 오류 로그는 더 이상 나타나지 않았고, 재부팅이 발생해야 할 시점에는 후킹된 reboot 함수가 호출되어 재부팅이 성공적으로 차단되었다. 이로써 안정적인 디버깅 및 추가 분석을 위한 환경 구축을 완료했다.
 
 ```python
 [root@Jooan:~]# LD_PRELOAD=/hook.so jooanipc 
