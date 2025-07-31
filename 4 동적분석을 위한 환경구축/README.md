@@ -31,7 +31,7 @@ MIPS Malta 보드 지원이 안정화된 버전인 Buildroot 2016.02 버전을 �
 buildroot 2016.02 과의 버전 호환성 및 안전성을 이유로 Docker를 이용한 ubuntu 16.04에서 빌드를 진행한다. 
 
 다음의 Dockerfile을 이용한다.
-설정 스크립트는 [../src/Dockerfile]를 참고하세요.
+설정 스크립트는 [../src/Dockerfile](../src/Dockerfile)을 참고하세요.
 
 ```python
 FROM ubuntu:16.04
