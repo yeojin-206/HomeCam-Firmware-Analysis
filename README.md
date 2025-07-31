@@ -22,7 +22,7 @@ PL(Project Leader): 장형범
 
 ## 카테고리
 
-### 1. [사전지식](1%20사전지식/README.md)
+### 1. [사전지식](https://github.com/tjdbs57/HomeCam-Firmware-Analysis/blob/main/1%20사전지식/README.md)
 
 - [임베디드 시스템 기초](1%20사전지식/1%20임베디드%20시스템%20기초/README.md)
   
