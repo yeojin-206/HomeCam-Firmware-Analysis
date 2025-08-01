@@ -708,6 +708,7 @@ Ghidra → Search → For Strings  에서  VE_IMP_system_RebootSys을 검색한�
 ![image.png](img/image31.png)
 
 ![image.png](img/image32.png)
+![image.png](img/image42.png)
 
 프로세스 시작점 확인 마지막으로 FUN_0048c348 함수의 참조를 추적하여, 최종적으로 이 모든
 초기화 과정을 시작시키는 함수가 FUN_00420d5c (main) 임을 확인했다. 이를 통해 이 재부팅
